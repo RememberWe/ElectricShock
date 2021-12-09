@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+/* logo */
+.container{margin:auto; margin-top: 50px;}
+.logo{text-align:center;}
+
+*{box-sizing: border-box;}
+
+/* 회원가입 */
+.title{text-align: center;}
+
+.signup{text-align: center; width:520px; margin:auto;}
+
+.signupBox{height:85px; position: relative;}
+
+.signupName{font-size: 22px; text-align: left;height:40%;}
+.signupVal{width:100%; height:60%;}
+input{width:100%; height:100%; background-color: sandybrown; border-radius: 10%;}
+
+#test5>div{float: left;}
+#test1 { width: 80%; height: 100%;}
+#test2 {width: 20%; height:100%;}
+#find { width: 100%; height: 100%; background-color: slateblue; border-radius: 10%;}
+
+#signup-btn{height:50px; background-color: slateblue; border-radius: 20%;}
+
+/* FOOTER */
+#footer-background{background-color: #F0F8FF;}
+.footers{font-size: small;}
+.footer{background-color: #F0F8FF;}
+#footer-img{width:60px; height:60px; color:snow;}
+
+
+
