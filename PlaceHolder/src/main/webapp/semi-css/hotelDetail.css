@@ -1,0 +1,650 @@
+@charset "utf-8";
+
+  /* 기본 설정 사항 */
+  html{
+    scroll-behavior: smooth;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+
+  img{
+    width:100%;
+    height:100%;
+  }
+  .container{
+    width:90%;
+  }
+
+  /* 헤더부분 시작 */
+  .header{
+    margin-bottom:30px;
+    margin-top:20px;
+  }
+  #logo {
+      width: 140px;
+      height: 80px;
+  }
+
+  #sidebtn {
+      height: 50px;
+  }
+
+  .navar-up {
+      margin-top: 30px;
+      right: 5%;
+  }
+
+  #offcanvasNavbarLabel {
+      font-size: 34px;
+  }
+
+  .signBox {
+      height: 200px;
+      text-align: center;
+  }
+
+  .signBox div a {
+      color: gray;
+      width: 50%;
+      height: 100%;
+      text-decoration: none;
+  }
+.top-search{
+  width:40px;
+  height:40px;
+  border-radius: 10px;
+  background-color: #c6e2ff;
+  border:none;
+  transition:all 0.3s;
+}
+.top-search:hover{
+  border:1px solid #c6e2ff;
+}
+
+  /* 로그인 */
+  .signInput input {
+    margin-top: 12px;
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #b6fcd5;
+    padding-left: 10px;
+    box-shadow: 2px 2px 1px 1px #e0e0e0;
+
+}
+
+.signBtns {
+    width: 120px;
+    height: 40px;
+    margin-top: 15px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #b6fcd5;
+    box-shadow: 1px 2px 3px 1px #e0e0e0;
+    transition: all 0.5s;
+
+}
+
+.signBtns:hover {
+    border: 1px solid #b6fcd5;
+    box-shadow: none;
+}
+
+/* 예약 후기 찜목록 버튼 */
+.loginAccBannerH{
+  height:90px;
+  width:100%;
+}
+.loginAccBanner{
+  width:80px;
+  height:40px;
+  display:inline-block;
+  background-color:#edffeb;
+  border-radius: 3px;
+  margin:1px;
+  border:none;
+  box-shadow: 1px 1px 2px 2px #eaeef1;
+  margin-top:15px;
+  transition: all 0.3s;
+}
+.loginAccBanner:hover{
+  opacity: 0.8;
+}
+
+/* 로그인 밑 이벤트배너 */
+.sideBanner {
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    background-color: #c6e2ff;
+    border-radius: 5px;
+    color: #323232;
+    border: none;
+    transition: all 1s;
+    box-shadow: 1px 2px 3px 1px #e0e0e0;
+    text-shadow: 1px 1px 3px white;
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 7px;
+}
+
+.sideBanner:hover {
+    opacity: 0.8;
+}
+
+
+/* 로그인 후 바뀔 css */
+#loginAcc {
+    width: 100%;
+    height: 250px;
+}
+
+.loginAcc {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-image: url(/semi-img/face.jpg);
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.loginMent {
+    text-align: center;
+    margin-top: 10px;
+}
+.logOut{
+  width:80px;
+  height:40px;
+  background-color:lavender;
+  border-radius: 5px;
+  border:none;
+}
+/* 로그인사이드바 끝 */
+
+
+  /* 위 배너 */
+  #banner{
+    width:100%;
+    height:60px;
+    margin-bottom:20px;
+  }
+  .bannerIn{
+    width:25%;
+    height:100%;
+    background-color:#C6E2FF;
+    border-radius: 5px;
+    border:1px solid white;
+    transition:all 0.5s;
+    box-shadow: 1px 1px 3px 1px #e0e0e0;
+  }
+  .bannerIn p{
+    color:	#4f5a66;
+    font-weight:bold;
+    font-size:18px;
+    text-align: center;
+    line-height:60px;
+    transition:all 0.5s;
+  }
+  .bannerIn:hover{
+    border:1px solid gray;
+    cursor: pointer;
+    background-color: #0a75ad;
+  }
+  .bannerIn:hover p{
+    color:white;
+  }
+
+  /* 호텔설명칸 */
+  .mainPhoto{
+    width:500px;
+    height:400px;
+    padding:0;
+  }
+  .mainInfo{
+    width: 690px;
+    height:410px;
+    margin-left:50px;
+    background-color: #f3f9ff;
+    border-radius: 5px;
+    padding-top:30px;
+    padding-left: 30px;
+  }
+
+  .hotelName{
+    font-size:20px;
+    font-weight: bold;
+    float:left;
+    margin-top:20px;
+  }
+
+  /* 별점 */
+  .star img{
+    width:30px;
+    height:30px;
+    margin-top:18px;
+    margin-left:30px;
+    margin-right:10px;
+    float:left;
+  }
+
+  .star img+p{
+    font-size:20px;
+    padding-top:20px;
+    float:left;
+  }
+
+  /* 좋아요 */
+  .heart{
+    width:30px;
+    height:30px;
+    float:left;
+    margin-top:20px;
+    margin-left:30px;
+    background-image:url(/semi-img/heart.png);
+    background-size:cover;
+    transition:all 0.5s;
+  }
+  .heart:hover{
+    background-image:url(/semi-img/heartOn.png);
+    cursor:pointer;
+  }
+
+  /* 공유 */
+  .share{
+    width:30px;
+    height:30px;
+    float:left;
+    margin-top:20px;
+    margin-left:30px;
+    background-image:url(/semi-img/share.png);
+    background-size:cover;
+    transition:all 0.3s;
+  }
+  .share:hover{
+    opacity: 0.9;
+    cursor:pointer;
+  }
+
+  /* 설명 안 옵션칸 */
+  .options span{
+    font-size:18px;
+    margin:5px;
+  }
+
+  .options select{
+    width:400px;
+    height:30px;
+    border:none;
+    border-radius: 5px;
+    margin-top:20px;
+    margin-bottom:20px;
+    transition:all 0.3s;
+    background-color:white;
+    padding-left:10px;
+    box-shadow: 1px 1px 1px 3px #f3f3f3;
+  }
+
+  .options select:hover{
+    background-color:#fffbf7;
+    cursor:pointer;
+  }
+
+  .reservationGo{
+    width:80px;
+    height:34px;
+    border-radius: 4px;
+    border:1px solid #D3FFCE;
+    transition:all 0.5s;
+    background-color:#faebd7;
+    margin-top:20px;
+    margin-left:50px;
+    box-shadow: 1px 1px 1px 3px #dcdcdc;
+  }
+
+  .reservationGo:hover{
+    background-color:#485fe2;
+    color:white;
+  }
+
+  /* 중간 배너 */
+  .stickyBanner{
+    position:sticky;
+    top:0;
+    width:1240px;
+    background-color: #8db8e2;
+    box-shadow: 1px 1px 2px 1px rgb(218, 218, 218);
+    border-radius: 3px;
+    margin-bottom:5px;
+    margin-top:10px;
+  }
+
+  .middleBanner{
+    margin-top:5px;
+    text-align: center;
+    width:210px;
+    height:50px;
+    line-height:50px;
+    font-size:18px;
+    background-color: #8db8e2;
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+  .middleBanner:hover{
+    background-color: #9dc1e5;
+    cursor:pointer;
+  }
+
+  .banner a{
+    text-decoration: none;
+    color:black;
+    display:inline-block;
+  }
+
+  /* 배너에 해당하는 목록등. */
+
+  .detail{
+    width:94%;
+    height:800px;
+    background-color:hotpink;
+  }
+
+  .review{
+    width:94%;
+    height:800px;
+    background-color: indigo;
+  }
+
+  .qna-middle{
+    width:94%;
+    height:800px;
+    background-color:khaki;
+  }
+
+  .info{
+    width:94%;
+    height:800px;
+    background-color:lightgreen;
+  }
+
+
+
+
+
+
+
+  /* 슬라이드 */
+  .slideBox{
+    width:1220px;
+    height:500px;
+    position:relative;
+  }
+  .slick-prev{
+    width:30px;
+    height:30px;
+    position:absolute;
+    bottom:40px;
+    right:540px;
+    border:none;
+    background-color: rgb(255, 254, 254);
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .slick-next{
+    width:30px;
+    height:30px;
+    position:absolute;
+    bottom:40px;
+    left:540px;
+    border:none;
+    background-color: rgb(255, 254, 254);
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+  .slick-prev:hover, .slick-next:hover{
+    background-color:rgb(233, 228, 221);
+  }
+
+
+  /* 슬라이드 카드 */
+  .card{margin-left: 5px;}
+
+  .card-text{
+    height:100px;
+    overflow: auto;
+  }
+
+  .cardbtn{
+    width:80px;
+    display:inline-block;
+    height:30px;
+    background-color: rgb(217, 245, 210);
+    text-decoration: none;
+    color:black;
+    border-radius: 2px;
+    text-align: center;
+    line-height:30px;
+    transition: all 0.3s;
+  }
+  .cardbtn:hover{
+    background-color: rgb(103, 79, 238);
+    color:white;
+  }
+
+
+
+
+
+
+
+
+
+  /* 푸터 시작 */
+  #footerIn {
+    margin: auto;
+  }
+
+  /* 푸터 placeholder 로고 */
+  .fot_logo {
+    margin: 20px;
+    margin-left: 50px;
+    width: 140px;
+    height: 84px;
+    background-image: url(/semi-img/logos.png);
+    display: block;
+    background-size: cover;
+    top: 50px;
+  }
+
+  /* place로고 오른쪽 블로그 글씨들 */
+  .foot-ul-blog li {
+    float: left;
+    margin: 5px;
+    margin-top: 30px;
+  }
+
+  .foot-ul-blog li a {
+    text-decoration: none;
+    color: #666666;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .foot-ul-blog li a:hover{
+    color: #333333;
+  }
+
+  /* 푸터 로고들 */
+  .foot-logos>li {
+    float: left;
+    margin: 3px;
+  }
+  .foot-logos>li a:hover{
+    opacity: 0.9;
+  }
+
+  .nblog {
+    width: 30px;
+    height: 30px;
+    background-image: url(/semi-img/nblog.png);
+    background-size: cover;
+    display: block;
+  }
+
+  .twitter {
+    width: 30px;
+    height: 30px;
+    background-image: url(/semi-img/twitter.png);
+    background-size: cover;
+    display: block;
+  }
+
+  .instargram {
+    width: 30px;
+    height: 30px;
+    background-image: url(/semi-img/instargram.png);
+    background-size: cover;
+    display: block;
+  }
+
+  .facebook {
+    width: 30px;
+    height: 30px;
+    background-image: url(/semi-img/facebook.png);
+    background-size: cover;
+    display: block;
+  }
+
+  /* 푸터 상호명등 */
+  .foot-sangho li {
+    font-size: 13px;
+    color: #696969;
+  }
+
+  .foot-sangho-a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #545454;
+  }
+
+  /* 푸터 Copyright */
+  .foot_caution {
+    font-size: 9px;
+  }
+
+
+
+
+
+
+
+  @media screen and (max-width: 1400px){
+    /* 호텔설명칸 */
+  .mainPhoto{
+    width:400px;
+    height:300px;
+    padding:0;
+  }
+  .mainInfo{
+    width: 600px;
+    height:320px;
+    margin-left:40px;
+  }
+
+  .hotelName{
+    font-size:18px;
+    font-weight: bold;
+    float:left;
+    margin-top:20px;
+  }
+  .reservationGo{
+    margin-top:0;
+  }
+  .middleBanner{
+    width:200px;
+  }
+  .stickyBanner{
+    width:1050px;
+  }
+
+  }
+
+
+  @media screen and (max-width: 1200px){
+    .mainPhoto{
+      width:350px;
+      height:300px;
+      padding:0;
+    }
+
+    .mainInfo{
+      width:510px;
+      height:350px;
+      margin-left:40px;
+      background-color: #f3f9ff;
+      border-radius: 5px;
+      padding-top:30px;
+      padding-left: 30px;
+    }
+  
+    .options select{
+      width:300px;
+      margin-bottom:5px;
+    }
+  
+    .reservationGo{
+      margin-top:5px;
+    }
+    .middleBanner{
+      width:150px;
+    }
+    .stickyBanner{
+      width:900px;
+    }
+    .card{
+      width:200px;
+    }
+
+    .slick-prev{
+      bottom:40px;
+      right:440px;
+
+    }
+    .slick-next{
+      bottom:40px;
+      left:440px;
+    }
+  }
+
+  @media screen and (max-width: 1000px){
+    .mainPhoto{
+      margin:auto;
+    }
+    .mainInfo{
+      margin:auto;
+    }
+    .stickyBanner{
+      width:660px;
+    }
+    .slick-prev{
+      bottom:40px;
+      right:280px;
+
+    }
+    .slick-next{
+      bottom:40px;
+      left:280px;
+    }
+  }
+
+  @media screen and (max-width: 800px){
+
+    .stickyBanner{
+      width:100%;
+    }
+  }
