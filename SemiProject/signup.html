@@ -44,6 +44,11 @@
                     <span class=signupRegex id="idRegex"></span>
                 </div><br><br>
                 <div class="signupBox">
+                    <div class=signupName>이름</div>
+                    <div class=signupVal id="nameVal"><input type=text placeholder="이름" id="name" name="name"></div>
+                    <span class=signupRegex id="nameRegex"></span>
+                </div><br><br>
+                <div class="signupBox">
                     <div class=signupName>비밀번호</div>
                     <div class=signupVal id="pwVal"><input type=password placeholder="비밀번호 입력" id="pw" name="pw"></div>
                     <span class=signupRegex id="pwRegex"></span>
@@ -53,23 +58,12 @@
                     <div class=signupVal id="rpwVal"><input type=password placeholder="비밀번호 재확인" id="rpw" name="rpw">
                     </div>
                     <div class=signupRegex id="rpwRegex"></div>
-                </div><br><br>
-                <div class="signupBox">
-                    <div class=signupName>이름</div>
-                    <div class=signupVal id="nameVal"><input type=text placeholder="이름" id="name" name="name"></div>
-                    <span class=signupRegex id="nameRegex"></span>
-                </div><br><br>
+                </div><br><br>                
                 <div class="signupBox">
                     <div class=signupName>닉네임</div>
                     <div class=signupVal id="nicknameVal"><input type=text placeholder="닉네임 입력" id="nickname"
                             name="nickname"></div>
                     <span class=signupRegex id="nicknameRegex"></span>
-                </div><br><br>
-                <div class="signupBox">
-                    <div class=signupName>전화번호</div>
-                    <div class=signupVal id="phoneVal"><input type=text placeholder="전화번호 입력" id="phone" name="phone">
-                    </div>
-                    <span class=signupRegex id="phoneRegex"></span>
                 </div><br><br>
                 <div class="signupBox">
                     <div class=signupName>이메일</div>
@@ -78,10 +72,22 @@
                     <span class=signupRegex id="emailRegex"></span>
                 </div><br><br>
                 <div class="signupBox">
+                    <div class=signupName>생년월일</div>
+                    <div class=signupVal id="birthVal"><input type=text placeholder="주민등록번호 앞자리 입력" id="birth" name="birth">
+                    </div>
+                    <span class=signupRegex id="birthRegex"></span>
+                </div><br><br>
+                <div class="signupBox">
+                    <div class=signupName>전화번호</div>
+                    <div class=signupVal id="phoneVal"><input type=text placeholder="전화번호 입력" id="phone" name="phone">
+                    </div>
+                    <span class=signupRegex id="phoneRegex"></span>
+                </div><br><br>                
+                <div class="signupBox">
                     <div class=signupName>우편번호</div>
                     <div class=signupVal id="test5">
                         <div id="test1">
-                            <input type=text placeholder="아이디입력" id="ad" name="adText">
+                            <input type=text placeholder="아이디입력" id="ad" name="post">
                         </div>
                         <div id="test2">
                             <input type=button value="찾기" id="find">
@@ -89,13 +95,13 @@
                     </div>
                 </div><br>
                 <div class="signupBox">
-                    <div class=signupName>주소</div>
-                    <div class=signupVal id="ad1Val"><input type=text placeholder="주소" id="ad1"></div>
+                    <div class=signupName>도로명주소</div>
+                    <div class=signupVal id="ad1Val"><input type=text placeholder="주소" id="ad1" name="roadAddress"></div>
                 </div><br>
 
                 <div class="signupBox">
                     <div class=signupName>상세주소</div>
-                    <div class=signupVal id="ad2Val"><input type=text placeholder="상세주소" id="ad2"></div>
+                    <div class=signupVal id="ad2Val"><input type=text placeholder="상세주소" id="ad2" name="roadAddress2"></div>
                 </div><br>
 
                 <!-- 가입하기  -->
@@ -140,10 +146,10 @@
 
         // ID 검사
         $("#id").on("input", function () {
-            let idRegex = /[a-z][a-zA-Z\d]{1,10}/;
+            let idRegex = /[a-z][a-zA-Z\d]{4,10}/;
             let idResult = idRegex.test($("#id").val());
             if (!idResult) {
-                $("#idRegex").html("첫글자 : 영어소문자 / 영어,숫자(2~10글자)로 입력바랍니다.");
+                $("#idRegex").html("첫글자 : 영어소문자 / 영어,숫자(5~10글자)로 입력바랍니다.");
                 $("#idRegex").css("color", "red");
             } else {
                 $("#idRegex").html("확인완료")
@@ -154,6 +160,23 @@
                 $("#idRegex").html("");
             }
         })
+
+        // 이름 검사
+        $("#name").on("input", function () {
+            let nameRegex = /[가-힣 a-z A-Z]{2,}/;
+            let nameResult = nameRegex.test($("#name").val());
+            if (!nameResult) {
+                $("#nameRegex").html("한글 또는 영어 2글자 이상 필요합니다");
+                $("#nameRegex").css("color", "red");
+            } else {
+                $("#nameRegex").html("확인완료")
+                $("#nameRegex").css("color", "green");
+            }
+            if ($("#name").val() == "") {
+                $("#nameRegex").html("");
+            }
+        })
+
 
         // 패스워드 검사
         rpw.on("input", function () {
@@ -200,24 +223,41 @@
                 pw_result.html("");
                 rpw_result.html("");
             }
-        })
+        })      
 
-        // 이름 검사
-        $("#name").on("input", function () {
-            let nameRegex = /[가-힣 a-z A-Z]{2,}/;
-            let nameResult = nameRegex.test($("#name").val());
-            if (!nameResult) {
-                $("#nameRegex").html("한글 또는 영어 2글자 이상 필요합니다");
-                $("#nameRegex").css("color", "red");
+        // 이메일 검사
+
+        email.on("input", function () {
+            let emailRegex = /.+?@.+?\.com/;
+            let emailResult = emailRegex.test(email.val());
+            if (!emailResult) {
+                email_Result.html("예시> ____ @ ____ .com");
+                email_Result.css("color", "red");
             } else {
-                $("#nameRegex").html("확인완료")
-                $("#nameRegex").css("color", "green");
+                email_Result.html("확인완료")
+                email_Result.css("color", "green");
             }
-            if ($("#name").val() == "") {
-                $("#nameRegex").html("");
+            if (email.val() == "") {
+                email_Result.html("");
             }
         })
+        
+        // 생년월일 검사
 
+        $("#birth").on("input", function () {
+            let birthRegex = /^\d{6}$/;
+            let birthResult = birthRegex.test($("#birth").val());
+            if (!birthResult) {
+                $("#birthRegex").html("주민등록번호 앞자리");
+                $("#birthRegex").css("color", "red");
+            } else {
+                $("#birthRegex").html("확인완료")
+                $("#birthRegex").css("color", "green");
+            }
+            if (birth.val() == "") {
+                $("#birthRegex").html("");
+            }
+        })
 
         // 전화번호 검사
 
@@ -236,23 +276,6 @@
             }
         })
 
-        // 이메일 검사
-
-        email.on("input", function () {
-            let emailRegex = /.+?@.+?\.com/;
-            let emailResult = emailRegex.test(email.val());
-            if (!emailResult) {
-                email_Result.html("예시> ____ @ ____ .com");
-                email_Result.css("color", "red");
-            } else {
-                email_Result.html("확인완료")
-                email_Result.css("color", "green");
-            }
-            if (email.val() == "") {
-                email_Result.html("");
-            }
-        })
-
 
         // <FORM> 태그 페이지 이동 막기
         form.on("submit", function () {
@@ -262,6 +285,15 @@
                 alert("아이디를 제대로 입력해주세요.")
                 id.val("");
                 id.focus();
+                return false;
+            }
+            
+            let nameRegex = /[가-힣a-z]{2,}/g;
+            let nameResult = nameRegex.test(name.val());
+            if (!nameResult) {
+                alert("이름을 입력해주세요.")
+                name.val("");
+                name.focus();
                 return false;
             }
 
@@ -282,32 +314,30 @@
                 return false;
             }
 
-
-
-            let nameRegex = /[가-힣a-z]{2,}/g;
-            let nameResult = nameRegex.test(name.val());
-            if (!nameResult) {
-                alert("이름을 입력해주세요.")
-                name.val("");
-                name.focus();
-                return false;
-            }
-
-            let phoneRegex = /010[0-9]{8}$/;
-            let phoneResult = phoneRegex.test(phone.val());
-            if (!phoneResult) {
-                alert("전화번호를 제대로 입력해주세요.")
-                phone.val("");
-                phone.focus();
-                return false;
-            }
-
             let emailRegex = /.+?@.+?\.com/g;
             let emailResult = emailRegex.test(email.val());
             if (!emailResult) {
                 alert("이메일을 제대로 입력하세요.")
                 email.val("");
                 email.focus();
+                return false;
+            }
+
+            let birthRegex = /^\d{6}$/;
+            let birthResult = birthRegex.test($("#birth").val());
+            if (!birthResult) {
+                alert("주민등록번호 앞자리를 입력하세요.")
+                $("#birth").val("");
+                $("#birth").focus();
+                return false;
+            }
+            
+            let phoneRegex = /010[0-9]{8}$/;
+            let phoneResult = phoneRegex.test(phone.val());
+            if (!phoneResult) {
+                alert("전화번호를 제대로 입력해주세요.")
+                phone.val("");
+                phone.focus();
                 return false;
             }
         })
