@@ -26,16 +26,19 @@ public class HotelDAO {
 		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/oracle");
 		return ds.getConnection();
 	}
-	//정보 전체 불러오기(리스트에 들어갈 항목들)
+
+	//호텔 컨트롤러에서 쓰일 것
+	//호텔 테이블에서 정보 모두 불러오기
 	public List<HotelDTO> selectHotel() throws Exception{
-		String sql = "selct * from hotel";
+		String sql = "select * from hotel";
 		try(Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 				ResultSet rs = pstat.executeQuery();){
-			ArrayList<HotelDTO> list = new ArrayList();
+			List<HotelDTO> list = new ArrayList();
 			while(rs.next()) {
 				HotelDTO dto = new HotelDTO();
 				dto.setHotelId(rs.getString("hotelID"));
+				dto.setHotelInfo(rs.getString("hotelInfo"));
 				dto.setHotelName(rs.getString("hotelName"));
 				dto.setHotelPhone(rs.getString("hotelPhone"));
 				dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
@@ -45,106 +48,146 @@ public class HotelDAO {
 			}return list;
 		}
 	}
-	//상품 정보 불러오기(호텔 이미지만 뽑아오기)
-	public List<String> selectHotelImg()throws Exception{
-		String sql = "select hotelImg from imgFile";
-		try(Connection con = this.getConnection();
-				PreparedStatement pstat = con.prepareStatement(sql);){
-			try(ResultSet rs = pstat.executeQuery();){
-				ArrayList<String> list = new ArrayList();
-				while(rs.next()) {
-					list.add(rs.getString("hotelImg"));
-				}return list;
-			}
-		}
-	}
-	//정렬(이름)
-	public List<HotelDTO> searchName(String keyword)throws Exception{
-		String sql = "select * from hotel where hotelName like '%?%'";
-		try(Connection con = this.getConnection();
-				PreparedStatement pstat = con.prepareStatement(sql);){
-			pstat.setString(1, keyword);
-			try(ResultSet rs = pstat.executeQuery();){
-				ArrayList<HotelDTO> list = new ArrayList();
-				while(rs.next()) {
-					HotelDTO dto = new HotelDTO();
-					dto.setHotelId(rs.getString("hotelID"));
-					dto.setHotelName(rs.getString("hotelName"));
-					dto.setHotelPhone(rs.getString("hotelPhone"));
-					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
-					dto.setHotelLongitude(rs.getString("hotelLongitude"));
-					dto.setHotelLatitude(rs.getString("hotelLatitude"));
-					list.add(dto);
-				}return list;
-			}
-		}
-	}
-	//정렬(이름)에 맞는 이미지 불러오기
-		public List<String> searchNameHotelImg(String keyword)throws Exception{
-			String sql = "select i.hotelImg from hotel h, imgFile i where h.hotelid = i.hotelid and h.hotelname = ?";
-			try(Connection con = this.getConnection();
-					PreparedStatement pstat = con.prepareStatement(sql);){
-				pstat.setString(1, keyword );
-				try(ResultSet rs = pstat.executeQuery();){
-					ArrayList<String> list = new ArrayList();
-					while(rs.next()) {
-						list.add(rs.getString("hotelImg"));
-					}return list;
-				}
-			}
-		}
-	//정렬(위치)
-	public List<HotelDTO> searchLocation(String keyword)throws Exception{
-		String sql = "select * from hotel where hotelRoadAddress like '%?%'";
-		try(Connection con = this.getConnection();
-				PreparedStatement pstat = con.prepareStatement(sql);){
-			pstat.setString(1, keyword);
-			try(ResultSet rs = pstat.executeQuery();){
-				ArrayList<HotelDTO> list = new ArrayList();
-				while(rs.next()) {
-					HotelDTO dto = new HotelDTO();
-					dto.setHotelId(rs.getString("hotelID"));
-					dto.setHotelName(rs.getString("hotelName"));
-					dto.setHotelPhone(rs.getString("hotelPhone"));
-					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
-					dto.setHotelLongitude(rs.getString("hotelLongitude"));
-					dto.setHotelLatitude(rs.getString("hotelLatitude"));
-					list.add(dto);
-				}return list;
-			}
-		}
-	}
-	//정렬(위치)에 맞는 이미지 불러오기
-			public List<String> searchLocationHotelImg(String keyword)throws Exception{
-				String sql = "select i.hotelImg from hotel h, imgFile i where h.hotelid = i.hotelid and h.hotelRoadAddress = ?";
-				try(Connection con = this.getConnection();
-						PreparedStatement pstat = con.prepareStatement(sql);){
-					pstat.setString(1, keyword );					
-					try(ResultSet rs = pstat.executeQuery();){
-						ArrayList<String> list = new ArrayList();
-						while(rs.next()) {
-							list.add(rs.getString("hotelImg"));
-						}return list;
-					}
-				}
-			}
-	//상품 정보 불러오기(방이미지만 뽑아오기)
-	public List<String> selectRoomImg(String name)throws Exception{
-		String sql = "select i.roomImg from Hotel h, imgFile i where h.hotelId = i.hotelId and h.hotelName = ?";
-		try(Connection con = this.getConnection();
-				PreparedStatement pstat = con.prepareStatement(sql);){
-			pstat.setString(1, name);
-			try(ResultSet rs = pstat.executeQuery();){
-				ArrayList<String> list = new ArrayList();
-				while(rs.next()) {
-					list.add(rs.getString("roomImg"));
-				}return list;
-			}
-		}
 
+	//호텔 테이블에서 범위 내의 정보 불러오기
+	public List<HotelDTO> selectHotelB(int start, int end) throws Exception{
+		String sql = "select * from(select hotel.*, row_number() over(order by hotelId asc)rn from hotel) where rn between ? and ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setInt(1, start);
+			pstat.setInt(2, end);
+			try(ResultSet rs = pstat.executeQuery();){
+				List<HotelDTO> list = new ArrayList();
+				while(rs.next()) {
+					HotelDTO dto = new HotelDTO();
+					dto.setHotelId(rs.getString("hotelID"));
+					dto.setHotelInfo(rs.getString("hotelInfo"));
+					dto.setHotelName(rs.getString("hotelName"));
+					dto.setHotelPhone(rs.getString("hotelPhone"));
+					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
+					dto.setHotelLongitude(rs.getString("hotelLongitude"));
+					dto.setHotelLatitude(rs.getString("hotelLatitude"));
+					list.add(dto);
+				}return list;
+			}
+		}
+	}
+
+	//호텔 테이블에서 이름 키워드를 포함한 정보 값을 불러오기
+	public List<HotelDTO> searchHotelName(String keyword)throws Exception{
+		String sql = "select * from hotel where hotelName like ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setString(1, "%"+keyword+"%");
+			try(ResultSet rs = pstat.executeQuery();){
+				List<HotelDTO> list = new ArrayList();
+				while(rs.next()) {
+					HotelDTO dto = new HotelDTO();
+					dto.setHotelId(rs.getString("hotelID"));
+					dto.setHotelInfo(rs.getString("hotelInfo"));
+					dto.setHotelName(rs.getString("hotelName"));
+					dto.setHotelPhone(rs.getString("hotelPhone"));
+					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
+					dto.setHotelLongitude(rs.getString("hotelLongitude"));
+					dto.setHotelLatitude(rs.getString("hotelLatitude"));
+					list.add(dto);
+				}return list;
+			}
+		}
+	}
+
+	//호텔 테이블에서 키워드(이름)을 포함한 범위 내의 값을 불러오기
+	public List<HotelDTO> searchHotelNameB(int start, int end, String keyword)throws Exception{
+		String sql = "select * from (select hotel.*, row_number() over(order by hotelId asc)rn from hotel where name like ?) where rn between ? and ?'";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setInt(1, start);
+			pstat.setInt(2, end);
+			pstat.setString(3, "%"+keyword+"%");
+			try(ResultSet rs = pstat.executeQuery();){
+				List<HotelDTO> list = new ArrayList();
+				while(rs.next()) {
+					HotelDTO dto = new HotelDTO();
+					dto.setHotelId(rs.getString("hotelID"));
+					dto.setHotelInfo(rs.getString("hotelInfo"));
+					dto.setHotelName(rs.getString("hotelName"));
+					dto.setHotelPhone(rs.getString("hotelPhone"));
+					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
+					dto.setHotelLongitude(rs.getString("hotelLongitude"));
+					dto.setHotelLatitude(rs.getString("hotelLatitude"));
+					list.add(dto);
+				}return list;
+			}
+		}
+	}
+
+	//호텔 테이블에서 키워드(위치)를 포함한 값을 불러오기
+	public List<HotelDTO> searchHotelSite(String keyword)throws Exception{
+		String sql = "select * from hotel where hotelRoadAddress like ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setString(1, "%"+keyword+"%");
+			try(ResultSet rs = pstat.executeQuery();){
+				List<HotelDTO> list = new ArrayList();
+				while(rs.next()) {
+					HotelDTO dto = new HotelDTO();
+					dto.setHotelId(rs.getString("hotelID"));
+					dto.setHotelInfo(rs.getString("hotelInfo"));
+					dto.setHotelName(rs.getString("hotelName"));
+					dto.setHotelPhone(rs.getString("hotelPhone"));
+					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
+					dto.setHotelLongitude(rs.getString("hotelLongitude"));
+					dto.setHotelLatitude(rs.getString("hotelLatitude"));
+					list.add(dto);
+				}return list;
+			}
+		}
+	}
+	//호텔테이블에서 모든 것을 삭제
+	public int deleteHotel(String hotelId)throws Exception{
+		String sql = "delete from hotel where hotelId = ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setString(1, hotelId);
+			int result = pstat.executeUpdate();
+			con.commit();
+			return result;
+		}
 	}
 	
+	//RoomController 에서 쓰일 것
+	//아이디값에 맞는 호텔 정보 조회
+	public HotelDTO selectHotelById(String id)throws Exception{
+		String sql = "select * from hotel where hotelId = ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setString(1, id);
+			try(ResultSet rs = pstat.executeQuery();){
+				if(rs.next()) {
+					HotelDTO dto = new HotelDTO();
+					dto.setHotelId(rs.getString("hotelID"));
+					dto.setHotelName(rs.getString("hotelName"));
+					dto.setHotelPhone(rs.getString("hotelPhone"));
+					dto.setHotelRoadAddress(rs.getString("hotelRoadAddress"));
+					dto.setHotelLongitude(rs.getString("hotelLongitude"));
+					dto.setHotelLatitude(rs.getString("hotelLatitude"));
+					return dto;
+				}return null;
+			}
+		}
+	}
 
+	//페이징
+	//전체 개수 가져오기
+	public int getHotelCount() throws Exception{
+		String sql = "select count(*) from hotel";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			ResultSet rs = pstat.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		}
+	} 
 
 }
 

@@ -2,14 +2,22 @@ package dto;
 
 public class ImgFileDTO {
 	//이미지
+	private String hotelId;
 	private String hotelImg;
 	private String roomImg;
 	
 	public ImgFileDTO() {}
-	public ImgFileDTO(String hotelImg, String roomImg) {
+	public ImgFileDTO(String hotelId, String hotelImg, String roomImg) {
 		super();
+		this.hotelId = hotelId;
 		this.hotelImg = hotelImg;
 		this.roomImg = roomImg;
+	}
+	public String getHotelId() {
+		return hotelId;
+	}
+	public void setHotelId(String hotelId) {
+		this.hotelId = hotelId;
 	}
 	public String getHotelImg() {
 		return hotelImg;
@@ -23,5 +31,7 @@ public class ImgFileDTO {
 	public void setRoomImg(String roomImg) {
 		this.roomImg = roomImg;
 	}
+	
+	
 	
 }

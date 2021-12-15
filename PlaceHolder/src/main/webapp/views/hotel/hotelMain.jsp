@@ -97,7 +97,7 @@
 																<button class="signBtns">로그인</button>
 															</div>
 															<div class="col-6 sign">
-																<button type="button" class="signBtns signUp">회원가입</button>
+																<a href="/signupPage.user"><button type="button" class="signBtns signUp">회원가입</button></a>
 															</div>
 														</div>
 													</form>
@@ -111,7 +111,7 @@
 										<button type="button" class="sideBanner">이 달의 이벤트</button>
 									</li>
 									<li class="nav-item">
-										<button type="button" class="sideBanner">홈으로</button>
+										<a href="/main.user"><button type="button" class="sideBanner">홈으로</button></a>
 									</li>
 									<li class="nav-item">
 										<button type="button" class="sideBanner">자유게시판</button>
@@ -132,7 +132,7 @@
     <!-- nav 바 첫번째 -->
     <div class="container">
         <div class="row">
-            <div class="nav1"><button type="button" class="btn" style=" background-color: rgba(0, 255, 255, 0.24);" id="nav-1">예약</button></div>
+            <a hrfe="/list.hotel"><div class="nav1"><button type="button" class="btn" style=" background-color: rgba(0, 255, 255, 0.24);" id="nav-1">예약</button></div></a>
             <div class="nav1"><button type="button" class="btn" style=" background-color: rgba(0, 255, 255, 0.24);" id="nav-1">커뮤니티</button></div>
             <div class="nav1"><button type="button" class="btn" style=" background-color: rgba(0, 255, 255, 0.24);" id="nav-1">고객센터</button></div>
             <div class="nav1"><button type="button" class="btn" style=" background-color: rgba(0, 255, 255, 0.24);" id="nav-1">마이페이지</button></div>

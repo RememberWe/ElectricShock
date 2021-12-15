@@ -2,6 +2,7 @@ package dto;
 
 public class RoomDTO {
 	//상세정보
+	private String hotelId;
 	private String roomType;
 	private String quantity;
 	private String roomPrice;
@@ -10,13 +11,22 @@ public class RoomDTO {
 	
 	public RoomDTO() {}
 	
-	public RoomDTO(String roomType, String quantity, String roomPrice, String addPrice, String roomInfo) {
+	public RoomDTO(String hotelId, String roomType, String quantity, String roomPrice, String addPrice,
+			String roomInfo) {
 		super();
+		this.hotelId = hotelId;
 		this.roomType = roomType;
 		this.quantity = quantity;
 		this.roomPrice = roomPrice;
 		this.addPrice = addPrice;
 		this.roomInfo = roomInfo;
+	}
+
+	public String getHotelId() {
+		return hotelId;
+	}
+	public void setHotelId(String hotelId) {
+		this.hotelId = hotelId;
 	}
 	public String getRoomType() {
 		return roomType;
@@ -48,4 +58,6 @@ public class RoomDTO {
 	public void setRoomInfo(String roomInfo) {
 		this.roomInfo = roomInfo;
 	}
+	
+	
 }
