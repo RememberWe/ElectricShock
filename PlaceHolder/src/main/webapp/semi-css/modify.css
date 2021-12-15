@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+.container{text-align: center;}
+  
+  /* header */
+  .header{
+    margin-bottom:30px;
+    margin-top:20px;
+  }
+  #logo {
+      width: 140px;
+      height: 80px;
+  }
+
+  #sidebtn {
+      height: 50px;
+  }
+
+
+  .navar-up {
+      margin-top: 30px;
+      right: 5%;
+  }
+
+  #offcanvasNavbarLabel {
+      font-size: 34px;
+  }
+
+  .signBox {
+      height: 200px;
+      text-align: center;
+  }
+
+  .signBox div a {
+      color: gray;
+      width: 50%;
+      height: 100%;
+      text-decoration: none;
+  }
+  .form-control{
+    width:80%;
+  }
+.top-search{
+  width:40px;
+  height:40px;
+  border-radius: 10px;
+  background-color: #e8f3ff;
+  border:none;
+  transition:all 0.3s;
+}
+.top-search:hover{
+  border:1px solid #e8f3ff;
+}
+
+/* 로그인 */
+.signInput input {
+  margin-top: 12px;
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #b6fcd5;
+  padding-left: 10px;
+  box-shadow: 2px 2px 1px 1px #e0e0e0;}
+.signBtns {
+  width: 120px;
+  height: 40px;
+  margin-top: 15px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #b6fcd5;
+  box-shadow: 1px 2px 3px 1px #e0e0e0;
+  transition: all 0.5s;}
+.signBtns:hover {border: 1px solid #b6fcd5; box-shadow: none;}
+.logOut{
+width:80px;
+height:40px;
+background-color:lavender;
+border-radius: 5px;
+border:none;}
+/* 예약 후기 찜목록 버튼 */
+.loginAccBannerH{height:90px; width:100%;}
+.loginAccBanner{
+width:80px;
+height:40px;
+display:inline-block;
+background-color:#edffeb;
+border-radius: 3px;
+margin:1px;
+border:none;
+box-shadow: 1px 1px 2px 2px #eaeef1;
+margin-top:15px;
+transition: all 0.3s;}
+.loginAccBanner:hover{opacity: 0.8;}
+/* 로그인 밑 이벤트배너 */
+.sideBanner {
+  font-weight: bold;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  background-color: #c6e2ff;
+  border-radius: 5px;
+  color: #323232;
+  border: none;
+  transition: all 1s;
+  box-shadow: 1px 2px 3px 1px #e0e0e0;
+  text-shadow: 1px 1px 3px white;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 7px;}
+.sideBanner:hover {opacity: 0.8;}
+/* 로그인 후 바뀔 css */
+#loginAcc {
+  width: 100%;
+  height: 250px;}
+.loginAcc {
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  background-image: url(/semi-img/face.jpg);
+  background-size: cover;
+  border-radius: 50%;}
+.loginMent {
+  text-align: center;
+  margin-top: 10px;}
+/* 로그인사이드바 끝 */
+
+/* nav1 */
+.nav1 {    
+    margin-bottom:10px;
+    text-align: center;
+    width: 25%;
+    height: 50px;}
+.navBtn{
+    background-color: rgba(0, 255, 255, 0.24);
+    border:0px;
+    width:95%;
+    height:100%;}
+
+
+
+/* 회원가입 */
+.title{text-align: center;}
+
+.signup{text-align: center; width:520px; margin:auto;}
+
+.signupBox{height:85px;}
+
+.signupName{font-size: 18px; height:40%;}
+.signupVal{width:100%; height:60%;}
+input{text-align:center; border:0px; width:100%; height:100%; background-color: rgba(244, 165, 96, 0.575); border-radius: 50px;}
+input::placeholder{text-align: center;}
+#test5>div{float: left;}
+#test1 { width: 85%; height: 100%;}
+#test2 {width: 15%; height:100%;}
+#find {border: 0px; width: 100%; height: 100%; background-color: rgba(105, 90, 205, 0.438); border-radius: 15px;}
+
+#signup-btn{height:50px; background-color: rgba(105, 90, 205, 0.438); border-radius: 12px;}
+#delUser{width:300px; height:200px;}
+
+/* FOOTER */
+/* #footer-background{background-color: #F0F8FF;} */
+/* .footers{font-size: small;} */
+/* #footer-img{width:60px; height:60px; color:snow;} */
+

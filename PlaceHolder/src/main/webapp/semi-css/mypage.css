@@ -1,0 +1,371 @@
+@charset "utf-8";
+
+*{box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: 'Nanum Gothic', sans-serif;}
+
+  .container{    
+    text-align: center;
+    margin:auto;
+    height:100%;
+    width:60%;
+    margin-bottom: 10px;}
+  img {width: 100%; height: 100%;}
+  button{border-radius: 15px;}
+
+  /* 헤더부분 시작 */
+  /* header */
+.header{margin-bottom:30px; margin-top:20px;}
+#logo {width: 140px; height: 80px;}
+
+#sidebtn {height: 50px;}
+.navar-up {margin-top: 30px; right: 5%;}
+
+#offcanvasNavbarLabel {font-size: 34px;}
+.signBox {height: 200px; text-align: center;}
+.signBox div a {
+    color: gray;
+    width: 50%;
+    height: 100%;
+    text-decoration: none;}
+.form-control{width:80%;}
+.top-search{
+width:40px;
+height:40px;
+border-radius: 10px;
+background-color: #e8f3ff;
+border:none;
+transition:all 0.3s;}
+.top-search:hover{border:1px solid #e8f3ff;}
+
+/* 로그인 */
+.signInput input {
+    margin-top: 12px;
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #b6fcd5;
+    padding-left: 10px;
+    box-shadow: 2px 2px 1px 1px #e0e0e0;}
+.signBtns {
+    width: 120px;
+    height: 40px;
+    margin-top: 15px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #b6fcd5;
+    box-shadow: 1px 2px 3px 1px #e0e0e0;
+    transition: all 0.5s;}
+.signBtns:hover {border: 1px solid #b6fcd5; box-shadow: none;}
+.logOut{
+  width:80px;
+  height:40px;
+  background-color:lavender;
+  border-radius: 5px;
+  border:none;}
+/* 예약 후기 찜목록 버튼 */
+.loginAccBannerH{height:90px; width:100%;}
+.loginAccBanner{
+  width:80px;
+  height:40px;
+  display:inline-block;
+  background-color:#edffeb;
+  border-radius: 3px;
+  margin:1px;
+  border:none;
+  box-shadow: 1px 1px 2px 2px #eaeef1;
+  margin-top:15px;
+  transition: all 0.3s;}
+.loginAccBanner:hover{opacity: 0.8;}
+/* 로그인 밑 이벤트배너 */
+.sideBanner {
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    background-color: #c6e2ff;
+    border-radius: 5px;
+    color: #323232;
+    border: none;
+    transition: all 1s;
+    box-shadow: 1px 2px 3px 1px #e0e0e0;
+    text-shadow: 1px 1px 3px white;
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 7px;}
+.sideBanner:hover {opacity: 0.8;}
+/* 로그인 후 바뀔 css */
+#loginAcc {
+    width: 100%;
+    height: 250px;}
+.loginAcc {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-image: url(/semi-img/face.jpg);
+    background-size: cover;
+    border-radius: 50%;}
+.loginMent {
+    text-align: center;
+    margin-top: 10px;}
+/* 로그인사이드바 끝 */
+
+/* nav1 */
+.nav1 {    
+    margin-bottom:10px;
+    text-align: center;
+    width: 25%;
+    height: 50px;}
+.navBtn{
+    background-color: rgba(0, 255, 255, 0.24);
+    border:0px;
+    width:95%;
+    height:100%;}
+/* nav바 끝 */
+
+/* nav2 */
+.nav2{
+    margin-bottom: 10px;    
+    text-align: center;
+    width: 20%;
+    height: 80px;}
+.nav2Btn{
+    background-color: rgba(255, 0, 0, 0.26);
+    border:0px;
+    width:95%;
+    height:100%;}
+/* nav2바 끝 */
+
+/* 투데이 핫 */
+#today {
+    text-align: center;
+}
+
+.card{border-radius: 15px;}
+.card-header{border-radius: 15px;}
+
+#cardc {
+    width: 100%;
+    height: 100%;
+}
+
+#cardlist1{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀1.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist1:hover{
+    background-size: 105% 105%;
+}
+
+#cardlist2{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀2.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist2:hover{
+    background-size: 105% 105%;
+}
+
+#cardlist3{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀3.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist3:hover{
+    background-size: 105% 105%;
+}
+
+#cardlist4{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀4.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist4:hover{
+    background-size: 105% 105%;
+}
+
+#cardlist5{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀5.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist5:hover{
+    background-size: 105% 105%;
+}
+
+#cardlist6{
+    width:285px; height:300px;
+    background-image: url("/semi-img/카드캐러셀6.jpg");
+    background-size: 100% 100%;
+    transition: all 0.5s;
+}
+
+#cardlist6:hover{
+    background-size: 105% 105%;
+}
+
+/* 리뷰 존 */
+#review {
+    text-align: center;
+}
+
+.h-100{
+    border-radius: 15px;
+}
+
+.card-img{
+    width:100%; height:200px;       
+    background-size: 100% 100%;
+    transition: all 0.5s;          
+}
+.card-body{height:88px;}
+.card-img:hover{
+    background-size: 105%;
+}
+#card-img-1{
+    background-image: url("/semi-img/카드1.jpg");
+    
+}
+
+#card-img-2{
+    background-image: url("/semi-img/카드2.jpg");
+    
+}
+
+#card-img-3{
+    background-image: url("/semi-img/카드3.jpg");
+    
+}
+
+#card-img-4{
+    background-image: url("/semi-img/카드4.jpg");
+    transition-duration: 5s;
+}
+
+#card-img-5{
+    background-image: url("/semi-img/카드5.jpg");
+    transition-duration: 5s;
+}
+
+#card-img-6{
+    background-image: url("/semi-img/카드6.jpg");
+    transition: all 0.5s;
+}
+
+
+    /* footer 시작 */    
+    .footBack {background-color: #F0F8FF;}
+    
+  
+      #footerIn {
+        margin: auto;
+      }
+  
+      /* 푸터 placeholder 로고 */
+      .fot_logo {
+        margin: 20px;
+        margin-left: 50px;
+        width: 140px;
+        height: 84px;
+        background-image: url(/semi-img/logos.png);
+        display: block;
+        background-size: cover;
+        top: 50px;
+      }
+  
+      /* place로고 오른쪽 블로그 글씨들 */
+      
+      .foot-ul-blog li {
+        float: left;
+        margin: 5px;
+        margin-top: 30px;
+      }
+  
+      .foot-ul-blog li a {
+        text-decoration: none;
+        color: #666666;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .foot-ul-blog li a:hover{
+        color: #333333;
+      }
+  
+      /* 푸터 로고들 */
+      .foot-logos>li {
+        float: left;
+        margin: 3px;
+      }
+      .foot-logos>li a:hover{
+        opacity: 0.9;
+      }
+  
+      .nblog {
+        width: 30px;
+        height: 30px;
+        background-image: url(/semi-img/nblog.png);
+        background-size: cover;
+        display: block;
+      }
+  
+      .twitter {
+        width: 30px;
+        height: 30px;
+        background-image: url(/semi-img/twitter.png);
+        background-size: cover;
+        display: block;
+      }
+  
+      .instargram {
+        width: 30px;
+        height: 30px;
+        background-image: url(/semi-img/instargram.png);
+        background-size: cover;
+        display: block;
+      }
+  
+      .facebook {
+        width: 30px;
+        height: 30px;
+        background-image: url(/semi-img/facebook.png);
+        background-size: cover;
+        display: block;
+      }
+  
+      /* 푸터 상호명등 */
+      .foot-sangho li {
+        font-size: 13px;
+        color: #696969;
+      }
+  
+      .foot-sangho-a {
+        text-decoration: none;
+        font-weight: 700;
+        color: #545454;
+      }
+  
+      /* 푸터 Copyright */
+      .foot_caution {
+        font-size: 9px;
+      }
+  
+      @media screen and (max-width: 800px) {/* 모바일 전용 */
+        .form-control{
+          width:150px;
+          margin-left:30px;
+        }
+    }

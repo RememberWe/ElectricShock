@@ -118,7 +118,7 @@
 																<button class="signBtns">로그인</button>
 															</div>
 															<div class="col-6 sign">
-																<button type="button" class="signBtns signUp">회원가입</button>
+																<a href="/signupPage.user"><button type="button" class="signBtns signUp">회원가입</button></a>
 															</div>
 														</div>
 													</form>
@@ -135,7 +135,7 @@
 										<a href="/main.user"><button type="button" class="sideBanner">홈으로</button></a>
 									</li>
 									<li class="nav-item">
-										<button type="button" class="sideBanner">자유게시판</button>
+										<a href=""><button type="button" class="sideBanner">자유게시판</button></a>
 									</li>
 								</ul>
 								<form class="d-flex">

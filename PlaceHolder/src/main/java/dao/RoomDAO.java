@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import dto.HotelDTO;
+import dto.RoomDTO;
 
 public class RoomDAO {
 	//인스턴스와 커넥션
@@ -26,18 +26,37 @@ public class RoomDAO {
 		DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/oracle");
 		return ds.getConnection();
 	}
-	//제품 정보 불러오기(이미지, 호텔, 상세정보)
-	public List<HotelDTO> selectGoods(String id) throws Exception{
-		String sql = "select * from hotel where hotelId = ?";
+	//호텔 아이디 값에 맞는 룸 정보 조회하기
+	public List<RoomDTO> selectRoomById(String hotelid) throws Exception{
+		String sql = "select * from room where hotelId = ?";
 		try(Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
-			pstat.setString(1, id);
+			pstat.setString(1, hotelid);
 			try(ResultSet rs = pstat.executeQuery();){
-				ArrayList<HotelDTO> list = new ArrayList();
+				List<RoomDTO> list = new ArrayList<>();
 				while(rs.next()) {
-					HotelDTO dto = new HotelDTO();
-				}
-			}return null;
+					RoomDTO dto = new RoomDTO();
+					dto.setHotelId(rs.getString("hotelId"));
+					dto.setRoomType(rs.getString("roomType"));
+					dto.setQuantity(rs.getString("quantity"));
+					dto.setRoomPrice(rs.getString("roomPrice"));
+					dto.setAddPrice(rs.getString("addPrice"));
+					dto.setRoomInfo(rs.getString("roomInfo"));
+					list.add(dto);					
+				}return list;
+			}
 		}
 	}
+	//호텔 아이디값으로 삭제하기
+	public int deleteRoom(String hotelId)throws Exception{
+		String sql = "delete from room where hotelId= ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setString(1, hotelId);
+			int result = pstat.executeUpdate();
+			con.commit();
+			return result;
+		}
+	}
+	
 }

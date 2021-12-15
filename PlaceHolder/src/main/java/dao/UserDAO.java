@@ -86,7 +86,7 @@ public class UserDAO {
 
 	//회원정보 수정(oracle에 저장된 회원정보를 수정)
 	public int update(UserDTO dto)throws Exception{
-		String sql = "update userInfo set userName = ?, userPw = ?, userNickname = ?, userEmail = ?, userBirth = ?, userPhone = ?, userPost = ?, userRoadAddress = ?, userRoadAddress2 = ?";
+		String sql = "update userInfo set userName = ?, userPw = ?, userNickname = ?, userEmail = ?, userBirth = ?, userPhone = ?, userPost = ?, userRoadAddress = ?, userRoadAddress2 = ? where userId = ?";
 		try(Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);){
 			pstat.setString(1, dto.getUserName());
@@ -98,12 +98,13 @@ public class UserDAO {
 			pstat.setString(7, dto.getUserPost());
 			pstat.setString(8, dto.getUserRoadAddress());
 			pstat.setString(9, dto.getUserRoadAddress2());
+			pstat.setString(10, dto.getUserId());
 			int result = pstat.executeUpdate();
 			con.commit();
 			return result;
 		}
 	}
-
+	
 	//회원정보 불러오기(oracle에 저장된 회원의 정보를 불러오기)
 	public UserDTO info(String id)throws Exception {
 		String sql = "select * from userInfo where userID = ?";

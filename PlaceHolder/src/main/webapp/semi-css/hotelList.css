@@ -187,6 +187,9 @@
         line-height:60px;
         transition:all 0.5s;
       }
+      .bannerIn a {
+        text-decoration: none;
+      }
       .bannerIn:hover{
         border:1px solid gray;
         cursor: pointer;
@@ -197,6 +200,19 @@
       }
 
       /* 배너 밑 검색박스 */
+      #searchOption{
+        width:100px;
+        height:40px;
+        margin-left:10px;
+        margin-top:5px;
+        border-radius: 3px;
+        transition: all 0.3s;
+      }
+      #searchOption:hover{
+        cursor:pointer;
+        background-color: rgb(240, 240, 247);
+      }
+
       .bannerSearch{
         margin-top:20px;
         margin-bottom:30px;
@@ -229,6 +245,8 @@
       }
 
       /* 리스트 콘텐츠 시작 */
+      #hotelId{display:none;} /* 호텔아이디는 안보이게 */
+
       .detailBox{
         width:90%;
         height:320px;
@@ -344,6 +362,22 @@
         background-color: #ffddc0
         ;
         color:#133337;
+      }
+
+
+
+      /* 더보기 버튼 */
+      #readMore{
+        width:80px;
+        height:40px;
+        border:none;
+        border-radius: 5px;
+        background-color: white;
+        transition: all 0.3s;
+        margin-top:10px;
+      }
+      #readMore:hover{
+        background-color:whitesmoke;
       }
 
 
