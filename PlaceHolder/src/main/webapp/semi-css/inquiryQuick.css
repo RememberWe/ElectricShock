@@ -1,0 +1,48 @@
+@charset "UTF-8";
+    /* 기본 설정 사항 */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        font-family: 'Nanum Gothic', sans-serif;
+      }
+      img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+      }
+      .container{
+        width:90%;
+        background-color: white;
+        align-items: center;
+        
+      }
+      
+    /* 팝업창 꾸미기 */ 
+    
+    label{
+    	font-weight:600; text-align:right; width:100px; background-color:#c6e1ff6b; border-radius:12px;
+    }
+    
+    #submit{
+    	width:60px;
+    	height:37px;
+    	border-radius: 5px;
+    	background-color: white;
+    	border:1px solid gray;
+    	transition: all 0.3s;
+    }
+    #reset{
+    	width:60px;
+    	height:37px;
+    	border-radius: 5px;
+    	background-color: white;
+    	border:1px solid gray;
+    	transition: all 0.3s;
+    }
+    textarea{
+    	background-color: rgb(250, 250, 250);
+    	box-shadow: 2px 2px 3px 2px #e0e0e0;
+    	
+    }
